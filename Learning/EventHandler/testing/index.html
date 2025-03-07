@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box-blue {
+        background: navy;
+        height: 50px;
+        width: 100px;
+      }
+      .box-red {
+        background: red;
+        height: 50px;
+        width: 100px;
+        position: relative;
+      }
+      body {
+        height: 2000px;
+      }
+      .box {
+        background: rebeccapurple;
+        height: 50px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body onmousemove="moveBoxRed(event)">
+    <div class="box-blue" id="boxBlue"></div>
+    <div class="box-red" id="boxRed"></div>
+    <div class="box" id="box"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

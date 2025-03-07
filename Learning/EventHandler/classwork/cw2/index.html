@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .container {
+        margin: auto;
+        width: 30%;
+        justify-content: space-between;
+        display: flex;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .green {
+        background-color: green;
+      }
+      .navy {
+        background-color: navy;
+      }
+      .box {
+        margin: 20px auto;
+        background-color: gray;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        onmouseover="changeColor(event,`orange`)"
+        onmouseout="changeColor(event,`gray`)"
+        class="orange"
+      ></div>
+      <div
+        onmouseover="changeColor(event,`green`)"
+        onmouseout="changeColor(event,`gray`)"
+        class="green"
+      ></div>
+      <div
+        onmouseover="changeColor(event,`navy`)"
+        onmouseout="changeColor(event,`gray`)"
+        class="navy"
+      ></div>
+    </div>
+    <div id="box" class="box"></div>
+
+    <script>
+      function changeColor(e, color) {
+        box.style.backgroundColor = `${color}`;
+      }
+    </script>
+  </body>
+</html>
