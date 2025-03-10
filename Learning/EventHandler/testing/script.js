@@ -30,8 +30,6 @@ function moveBoxRed(e) {
   boxRed.style.top = e.pageY + "px";
 }
 
-
-
 box.onclick = (e) => {
   box.style.backgroundColor =
     "rgb(" +
@@ -42,3 +40,10 @@ box.onclick = (e) => {
     Math.round(255 * Math.random()) +
     ")";
 };
+
+//annonymous function
+/*
+clickableDiv.onclick = function () {
+  alert("This is onclick event with annonymous function");
+};
+*/

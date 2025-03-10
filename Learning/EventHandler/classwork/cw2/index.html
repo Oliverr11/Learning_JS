@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        height: 100vh;
+      }
       div {
         width: 100px;
         height: 100px;
@@ -27,11 +30,14 @@
       .box {
         margin: 20px auto;
         background-color: gray;
-        transition: 0.5s;
+      }
+      .black {
+        background-color: black;
+        position: relative;
       }
     </style>
   </head>
-  <body>
+  <body onmousemove="moveBox(event)">
     <div class="container">
       <div
         onmouseover="changeColor(event,`orange`)"
@@ -50,11 +56,8 @@
       ></div>
     </div>
     <div id="box" class="box"></div>
+    <div id="boxMove" class="black"></div>
 
-    <script>
-      function changeColor(e, color) {
-        box.style.backgroundColor = `${color}`;
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
