@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag-and-Drop</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .block {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: #3498db;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        cursor: pointer;
+        position: absolute; /* Allows moving the block */
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="block" id="block1">Block 1</div>
+    <div class="block" id="block2">Block 2</div>
+    <div class="block" id="block3">Block 3</div>
+
+    <script>
+      // Select all blocks
+      const blocks = document.querySelectorAll(".block");
+
+      // Loop through each block to add event listeners
+      blocks.forEach((block) => {
+        block.addEventListener("mousedown", onMouseDown);
+      });
+
+      let currentBlock = null; // Variable to hold the block being dragged
+      let offsetX, offsetY; // To store the mouse's offset position relative to the block
+
+      function onMouseDown(event) {
+        currentBlock = event.target; // The block being dragged
+
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+      }
+
+      function onMouseMove(event) {
+        if (currentBlock) {
+          currentBlock.style.left = `${event.clientX}px`;
+          currentBlock.style.top = `${event.clientY}px`;
+        }
+      }
+
+      function onMouseUp() {
+        document.removeEventListener("mousemove", onMouseMove);
+      }
+    </script>
+  </body>
+</html>
