@@ -1,27 +1,25 @@
 function clickBox(id, name, soundUrl) {
   const element = document.getElementById(id);
-  element.addEventListener("click", () => {
-    //alert(`You hit: ${name}`);
-
-    const sound = new Audio(`assets/sounds/` + soundUrl);
-    sound.play();
+  element.addEventListener("click", (e) => {
+    let button = e.currentTarget;
+    addAnimation(button);
+    playSound(soundUrl);
   });
 }
-clickBox(`tom1`, `W`, `tom-1.mp3`);
-clickBox(`tom2`, `A`, `tom-2.mp3`);
-clickBox(`tom3`, `S`, `tom-3.mp3`);
-clickBox(`tom4`, `D`, `tom-4.mp3`);
-clickBox(`snare`, `J`, `snare.mp3`);
-clickBox(`crash`, `K`, `crash.mp3`);
-clickBox(`kick`, `L`, `kick-bass.mp3`);
-
-function keyPress(key, name, soundFile) {
+//having name arg because the first exercise want me to alert the key that i press
+clickBox(`w`, `W`, `tom-1.mp3`);
+clickBox(`a`, `A`, `tom-2.mp3`);
+clickBox(`s`, `S`, `tom-3.mp3`);
+clickBox(`d`, `D`, `tom-4.mp3`);
+clickBox(`j`, `J`, `snare.mp3`);
+clickBox(`k`, `K`, `crash.mp3`);
+clickBox(`l`, `L`, `kick-bass.mp3`);
+function keyPress(key, name, soundUrl) {
   document.addEventListener("keydown", (event) => {
     if (event.key.toLowerCase() == key.toLowerCase()) {
-      //alert(`You hit: ${name}`);
-
-      const sound = new Audio(`assets/sounds/` + soundFile);
-      sound.play();
+      let button = document.getElementById(name.toLowerCase());
+      addAnimation(button);
+      playSound(soundUrl);
     }
   });
 }
@@ -32,3 +30,14 @@ keyPress("d", `D`, `tom-4.mp3`);
 keyPress("j", `J`, `snare.mp3`);
 keyPress("k", `K`, `crash.mp3`);
 keyPress("l", "L", "kick-bass.mp3");
+
+function playSound(soundFile) {
+  const sound = new Audio(`assets/sounds/` + soundFile);
+  sound.play();
+}
+function addAnimation(button) {
+  button.classList.add("pressed");
+  setTimeout(() => {
+    button.classList.remove("pressed");
+  }, 200);
+}
