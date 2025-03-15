@@ -1,0 +1,89 @@
+body {
+  color: black;
+  background-color: #131313;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+  color: rgb(42, 42, 163);
+}
+.container {
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+.row {
+  display: flex;
+
+  align-items: center;
+  border-radius: 10px;
+  justify-content: space-between;
+  background-color: #edeef0;
+}
+input {
+  flex: 1;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-weight: 14px;
+  background-color: transparent;
+}
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background-color: rgb(255, 106, 0);
+  border-radius: 10px;
+}
+ul {
+  padding: 0;
+}
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  word-wrap: break-word;
+  cursor: pointer;
+  position: relative;
+  line-height: 40px;
+}
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(unchecked.png);
+  background-size: cover;
+  background-position: center;
+  left: 0px;
+}
+ul li.checked {
+  color: #555;
+  text-decoration-line: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(checked.png);
+}
+
+ul li span {
+  color: orange;
+  font-weight: bolder;
+  margin-left: 20px;
+  padding: 0 10px;
+  text-align: center;
+  transition: 0.2s;
+  position: absolute;
+}
+span:hover {
+  background-color: gray;
+  border-radius: 10px;
+  transition: 0.2s;
+}
