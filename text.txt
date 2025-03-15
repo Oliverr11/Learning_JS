@@ -1,3 +1,0 @@
-api to get let lon of the city 
-
-and then get the city and then check the weather by the let lon
