@@ -1,22 +1,21 @@
 //synchronoous
 
-/*
-async function GetUserList() {
-  console.log("Start 1 request...");
-  const response = await fetch("https://reqres.in/api/users?page=2");
-  let jsonData = await response.json();
-  if (response.ok) {
-    console.log("Api1 getting success!");
-    console.log(jsonData);
-  } else {
-    console.log("Error getting api!");
-    return;
-  }
-  console.log("End 1 request...");
+function GetUserList() {
+  document.querySelector("button").onclick = async () => {
+    let cityName = document.querySelector(".input").value;
+    let response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=c96917e577617e96fa9c88bb28889d00`
+    );
+    let jsonData = await response.json();
+    if (response.ok) {
+      document.writeln(jsonData.weather[0].main);
+    } else {
+      console.log("Error getting api!");
+      return;
+    }
+  };
 }
 GetUserList();
-*/
-
 /*
 async function getData() {
   try {
@@ -55,6 +54,7 @@ function GetUserList2() {
 GetUserList2();
 */
 
+/*
 function Login() {
   fetch("https://reqres.in/api/login", {
     method: "POST",
@@ -80,3 +80,4 @@ function Login() {
     });
 }
 Login();
+*/
