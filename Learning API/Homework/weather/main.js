@@ -1,16 +1,7 @@
-function GetWeather() {
-  const selectWeather = document.querySelector("#weatherIMG");
-  const weatherIcons = {
-    Clear: "images/clear.png",
-    Clouds: "images/clouds.png",
-    Drizzle: "images/drizzle.png",
-    Mist: "images/mist.png",
-    Rain: "images/rain.png",
-    Wind: "images/wind.png",
-    Snow: "images/snow.png",
-  };
-  document.querySelector("button").onclick = () => {
-    let cityName = document.querySelector("input").value;
+const selectWeather = document.querySelector("#weatherIMG");
+document.querySelector("button").onclick = () => {
+  let cityName = document.querySelector("input").value;
+  if (cityName != "") {
     const response = fetch(
       `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=c96917e577617e96fa9c88bb28889d00`
     )
@@ -32,11 +23,10 @@ function GetWeather() {
           data.main.humidity + " %";
         document.querySelector("#windSpeed").innerHTML =
           data.wind.speed + " km/h";
-        selectWeather.src = weatherIcons[data.weather[0].main];
+        selectWeather.src = `images/${data.weather[0].main}.png`;
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-}
-GetWeather();
+  }
+};
